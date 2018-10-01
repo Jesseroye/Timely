@@ -1,0 +1,90 @@
+<button mat-button [matMenuTriggerFor]="menu">Clients</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item *ngFor="let client of clients">{{client}}</button>
+    </mat-menu>
+    Address:{{address}},UserName:{{userName}},Manager Name:{{managerName}}
+<mat-card class="body_app">
+      <mat-form-field>
+          <input
+          matInput
+          required
+          placeholder="Work Title"
+          [(ngModel)]="taskInfo.workTitle">
+          <mat-error *ngIf="taskInfo.workTitle===''">Please Enter the Work Title</mat-error>
+      </mat-form-field>
+    <mat-form-field>
+         <input
+          matInput
+          required
+          placeholder="Client Name"
+          [(ngModel)]="taskInfo.clientName">
+          <mat-error *ngIf="taskInfo.clientName===''">Please Enter the Client's Name</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Date for the task"
+             (dateInput)="addTime($event)" (dateChange)="addTime($event)" required>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="taskInfo.dateSelected===''">Please Choose a Date</mat-error>
+    </mat-form-field>
+    <mat-card class="time_input">
+      <h3>From</h3>
+      <mat-form-field >
+        <input
+        matInput
+        required
+        type="number"
+        placeholder="Hour"
+        [(ngModel)]="startTimeHour">
+        <mat-error *ngIf="startTimeHour===undefined">Enter Hour of Day</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input
+        matInput
+        required
+        type="number"
+        placeholder="Minutes"
+        [(ngModel)]="startTimeMinutes">
+        <mat-error *ngIf="startTimeMinutes===undefined">Enter Minutes of the Hour</mat-error>
+      </mat-form-field>
+      <mat-button-toggle-group name="am_pm_toggle">
+        <mat-button-toggle value="AM" (change)="addAmPmStart($event)">AM</mat-button-toggle>
+        <mat-button-toggle value="PM"(change)="addAmPmStart($event)">PM</mat-button-toggle>
+      </mat-button-toggle-group>
+      <h3>To</h3>
+      <mat-form-field>
+        <input
+        matInput
+        required
+        type="number"
+        placeholder="Hour"
+        [(ngModel)]="endTimeHour">
+        <mat-error *ngIf="endTimeHour===undefined">Enter Hour of Day</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+      <input
+        matInput
+        required
+        type="number"
+        placeholder="Minutes"
+        [(ngModel)]="endTimeMinutes">
+        <mat-error *ngIf="endTimeMinutes===undefined">Enter Minutes of the Hour</mat-error>
+      </mat-form-field>
+      <mat-button-toggle-group name="am_pm_toggle">
+        <mat-button-toggle value="AM" (change)="addAmPmEnd($event)">AM</mat-button-toggle>
+        <mat-button-toggle value="PM"(change)="addAmPmEnd($event)">PM</mat-button-toggle>
+      </mat-button-toggle-group>
+      <p>Total Time {{totalTime.hours}}:{{totalTime.minutes}}</p>
+      <button
+        mat-raised-button
+        color = "accent"
+        (click)="onAddTime()">Save Time</button>
+  </mat-card>
+    <button
+    class="save_post"
+    mat-raised-button
+    color = "accent"
+    (click)="onAddTimeSheet()">Save Post</button>
+</mat-card>
+<app-task-list></app-task-list>
+

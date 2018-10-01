@@ -1,0 +1,19 @@
+<mat-accordion multi="true" *ngIf="tasks.length > 0">
+    <mat-expansion-panel *ngFor="let task of tasks">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{task.workTitle}}
+        </mat-panel-title>
+        <mat-panel-description>
+          Tasks submitted by you!
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <ul>
+          <li>Client Name:{{task.clientName}}</li>
+          <li>Date Selected{{task.dateSelected}}</li>
+          <li>{{task.totalTime}}</li>
+      </ul>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <p class="mat-body-1 info-text" *ngIf="tasks.length === 0">No tasks added yet!</p>

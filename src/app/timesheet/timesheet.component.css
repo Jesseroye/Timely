@@ -1,0 +1,22 @@
+mat-card{
+  width:80%;
+  margin:auto;
+}
+
+.body_app{
+  width:65%;
+}
+
+mat-form-field{
+  width:100%;
+  margin:auto;
+}
+
+.save_post{
+  margin-top: 16px;
+}
+
+.time_input mat-form-field{
+  width:30%;
+  padding:20px;
+}

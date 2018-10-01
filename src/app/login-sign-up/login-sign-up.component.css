@@ -1,0 +1,15 @@
+mat-card{
+  width:50%;
+  margin:auto;
+}
+
+.login,.sign_up{
+  width:50%;
+  margin:auto;
+}
+
+mat-form-field{
+  width:81%;
+  margin:auto;
+  padding:20px;
+}

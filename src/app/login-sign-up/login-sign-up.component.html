@@ -1,0 +1,105 @@
+<mat-card>
+    <button
+    class="login"
+    mat-raised-button
+    color = "primary"
+    (click)="onSwitchState('Login')">Login</button>
+    <button
+    class="sign_up"
+    mat-raised-button
+    color = "accent"
+    (click)="onSwitchState('SignUp')">Sign Up</button>
+    <hr>
+    <div *ngIf="state === 'Login'; else SignUp">
+        <mat-form-field>
+            <input
+            matInput
+            required
+            email
+            type="email"
+            placeholder="Email"
+            [(ngModel)]="email">
+        </mat-form-field>
+        <mat-form-field>
+            <input
+            matInput
+            required
+            type="password"
+            placeholder="Password"
+            [(ngModel)]="password">
+        </mat-form-field>
+        <button
+        class="submit"
+        mat-raised-button
+        color = "primary"
+        (click)="onLogin()">Login</button>
+    </div>
+    <ng-template #SignUp>
+        <div>
+            <mat-form-field>
+                <input
+                matInput
+                required
+                type="text"
+                placeholder="First Name"
+                [(ngModel)]="firstName">
+            </mat-form-field>
+            <mat-form-field>
+                <input
+                matInput
+                required
+                type="text"
+                placeholder="Last Name"
+                [(ngModel)]="lastName">
+            </mat-form-field>
+            <mat-form-field>
+                <input
+                matInput
+                required
+                type="text"
+                placeholder="Address"
+                [(ngModel)]="address">
+            </mat-form-field>
+            <mat-form-field>
+                <input
+                matInput
+                required
+                email
+                type="email"
+                placeholder="SignUp Email"
+                [(ngModel)]="signUpEmail">
+            </mat-form-field>
+            <mat-form-field>
+                <input
+                matInput
+                required
+                type="password"
+                placeholder="SignUp Password"
+                [(ngModel)]="signUpPassword">
+            </mat-form-field>
+            <mat-form-field>
+                <input
+                matInput
+                required
+                type="password"
+                placeholder="Re-Enter Password"
+                [(ngModel)]="resignUpPassword">
+            </mat-form-field>
+            <mat-form-field>
+                <input
+                matInput
+                required
+                type="text"
+                placeholder="Enter Manager Authorization Code"
+                [(ngModel)]="authCode">
+            </mat-form-field>
+            <button
+            class="submit"
+            mat-raised-button
+            color = "primary"
+            (click)="onSignUp()">Sign Up</button>
+        </div>
+    </ng-template>
+
+</mat-card>
+
